@@ -1,0 +1,26 @@
+landing-page
+    index.html
+    package.json
+    project-structure.md
+    README.md
+    .gitignore
+    assets
+        images
+        fonts
+        icons
+    css
+        style.css
+        components.css
+        layout.css
+        variables.css
+    js
+        main.js
+        form.js
+        scroll.js
+        typing.js
+        SlideShow.js
+    components
+    dist
+        index.html
+        bundle.css
+        bundle.js

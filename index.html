@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OrideDax – Guiding Your Next Ride</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+</head>
+<body>
+
+  <!-- ✅ HERO / HEADER -->
+  <header class="hero">
+    <div class="hero-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-inner">
+        <div class="nav-brand">
+          <img src="assets/images/LOGO.png" alt="OrideDax Logo" class="nav-logo">
+        </div>
+
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#about">Over</a></li>
+          <li><a href="#features">Functies</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Privacybeleid</a></li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <h1 class="hero-title"><span id="typing-text"></span></h1>
+      <p class="hero-subtitle">Vind snel en veilig een rijbegeleider in België</p>
+      <!-- Waitlist form unchanged -->
+      <form id="waitlist-form" class="waitlist-form">
+        <input type="email" placeholder="Voer je e-mailadres in" required />
+        <label>
+          <input type="checkbox" id="agreePolicy" required />
+          Ik ga akkoord met het <a href="#">privacybeleid</a>
+        </label>
+        <button type="submit" class="btn-primary">Join the Waitlist</button>
+      </form>
+    </div>
+  </header>
+
+
+  <!-- ✅ ABOUT -->
+  <section class="about" id="about">
+    <div class="about-container">
+      <div class="about-text reveal">
+        <h2>Over OrideDax</h2>
+        <p>
+          OrideDax verbindt kandidaat-bestuurders met ervaren begeleiders in België.  
+          Ons doel is om leren rijden makkelijker, veiliger en toegankelijker te maken.  
+          Met ons platform vind je snel een betrouwbare begeleider in jouw buurt,  
+          plan je sessies eenvoudig in en blijf je in contact via onze veilige chat.
+        </p>
+        <p>
+          Samen bouwen we aan meer vertrouwen op de weg.
+        </p>
+        <a href="#features" class="btn-primary">Ontdek de functies</a>
+      </div>
+
+      <!-- ✅ Mockup Slider -->
+      <div class="about-image reveal">
+        <div class="slider" id="mockup-slider">
+          <div class="slides">
+            <img src="assets/images/mockup-phone-calendar.png" alt="Mockup 1">
+            <img src="assets/images/mockup-phone-wallet.png" alt="Mockup 2">
+            <img src="assets/images/mockup-phone.png" alt="Mockup 3">
+          </div>
+
+          <!-- Controls -->
+          <button class="slider-btn prev">&#10094;</button>
+          <button class="slider-btn next">&#10095;</button>
+
+          <!-- Dot indicators -->
+          <div class="slider-dots"></div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ✅ FEATURES -->
+  <section class="features" id="features">
+    <div class="features-container">
+      <h2>Belangrijkste Functies</h2>
+      <p class="features-subtitle">
+        Alles wat je nodig hebt om veilig en efficiënt je rijervaring op te bouwen.
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-card glass-card reveal">
+          <img src="assets/icons/search.png" alt="Zoeken icoon" />
+          <h3>Zoek & Match</h3>
+          <p>Vind begeleiders in jouw buurt op basis van locatie, ervaring en beschikbaarheid.</p>
+        </div>
+
+        <div class="feature-card glass-card reveal">
+          <img src="assets/icons/chat.png" alt="Chat icoon" />
+          <h3>In-app Chat</h3>
+          <p>Blijf in contact met je begeleider via onze veilige berichtenfunctie.</p>
+        </div>
+
+        <div class="feature-card glass-card reveal">
+          <img src="assets/icons/calendar.png" alt="Kalender icoon" />
+          <h3>Planning</h3>
+          <p>Plan eenvoudig sessies in met de ingebouwde kalenderfunctie.</p>
+        </div>
+
+        <div class="feature-card glass-card reveal">
+          <img src="assets/icons/reviews.png" alt="Ster icoon" />
+          <h3>Reviews & Veiligheid</h3>
+          <p>Laat beoordelingen achter en gebruik onze veiligheidsopties zoals de noodknop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2>Neem Contact Op</h2>
+        <p>Heb je vragen? We helpen je graag verder. Vul het formulier in of stuur ons rechtstreeks een bericht.</p>
+        <ul>
+          <li>📧 info@oridedax.be</li>
+          <li>📍 Antwerpen, België</li>
+          <li>📱 +32 123 45 67 89</li>
+        </ul>
+      </div>
+
+      <form id="contact-form" class="contact-form">
+        <label for="name">Naam</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">E-mailadres</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Bericht</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit" class="btn-primary">Verstuur</button>
+      </form>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="contactSuccess" class="contact-success-modal">
+      <div class="contact-success-content">
+        <p>✅ Bedankt! Je bericht is verzonden.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ✅ FOOTER -->
+  <footer class="footer reveal">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="assets/images/LOGO.png" alt="OrideDax Logo" class="footer-logo" />
+        <p class="footer-slogan">Guiding Your Next Ride</p>
+      </div>
+
+      <nav class="footer-nav">
+        <a href="#about">Over</a>
+        <a href="#features">Functies</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Privacybeleid</a>
+      </nav>
+
+      <div class="footer-social">
+        <!-- Facebook -->
+        <a href="#" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#1877F2">
+            <path d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 24 1.326 24H12.82v-9.294H9.692v-3.622h3.128V8.414c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.312h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.326-.597 1.326-1.326V1.326C24 .597 23.403 0 22.675 0z"/>
+          </svg>
+        </a>
+
+        <!-- Instagram -->
+        <a href="#" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#E1306C">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.31.975.975 1.248 2.242 1.31 3.608.058 1.266.07 1.645.07 4.849s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.31 3.608-.975.975-2.242 1.248-3.608 1.31-1.266.058-1.645.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.31-.975-.975-1.248-2.242-1.31-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.31-3.608.975-.975 2.242-1.248 3.608-1.31C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.775.13 4.603.396 3.635 1.364 2.667 2.332 2.401 3.504 2.343 4.782 2.284 6.062 2.271 6.471 2.271 12s.013 5.938.072 7.218c.058 1.278.324 2.45 1.292 3.418.968.968 2.14 1.234 3.418 1.292C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.278-.058 2.45-.324 3.418-1.292.968-.968 1.234-2.14 1.292-3.418.059-1.28.072-1.689.072-7.218s-.013-5.938-.072-7.218c-.058-1.278-.324-2.45-1.292-3.418-.968-.968-2.14-1.234-3.418-1.292C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/>
+          </svg>
+        </a>
+
+        <!-- X  -->
+        
+
+        <!-- TikTok Icon -->
+        
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 OrideDax. Alle rechten voorbehouden.</p>
+    </div>
+  </footer>
+
+  <!-- ✅ Scripts -->
+  <script src="js/typing.js" defer></script>
+  <script src="js/scroll.js" defer></script>
+  <script src="js/form.js" defer></script>
+  <script src="js/SlideShow.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>
