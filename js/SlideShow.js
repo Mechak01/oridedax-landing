@@ -1,5 +1,5 @@
 // ✅ SlideShow.js
-// Handles mockup slider functionality for the "About" section
+// Handles mockup slider functionality for the "mockup section" section
 
 document.addEventListener("DOMContentLoaded", () => {
   const slider = document.getElementById("mockup-slider");

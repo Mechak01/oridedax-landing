@@ -30,7 +30,7 @@ function initWaitlistForm() {
   const modal = document.getElementById('successModal');
   const closeModal = document.getElementById('closeModal');
 
-  if (!form) return; // ⛔ safeguard if form not on page
+  if (!form) return;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -40,14 +40,14 @@ function initWaitlistForm() {
     const button = form.querySelector('button[type="submit"]');
 
     if (!agreed) {
-      alert("Please agree to the policies before submitting.");
+      alert("Gelieve akkoord te gaan met het privacybeleid.");
       return;
     }
 
-    // Disable the form
+    // Disable form button
     form.classList.add('disabled');
     button.disabled = true;
-    button.innerText = 'Submitting...';
+    button.innerText = 'Bezig...';
 
     try {
       const response = await fetch("https://sheetdb.io/api/v1/0embjmd8gjwvg", {
@@ -57,29 +57,30 @@ function initWaitlistForm() {
       });
 
       if (response.ok) {
-        showModal(modal);
         form.reset();
+        showModal(modal);
+
+        // Optional: auto-close after 4s
+        setTimeout(() => hideModal(modal), 4000);
       } else {
-        alert("Oops! Something went wrong. Please try again.");
+        alert("Er ging iets mis, probeer opnieuw.");
       }
     } catch (err) {
       console.error(err);
-      alert("Network error. Please try again.");
+      alert("Netwerkfout. Probeer opnieuw.");
     } finally {
-      // Re-enable form
       form.classList.remove('disabled');
       button.disabled = false;
       button.innerText = 'Join the Waitlist';
     }
   });
 
-  // Close modal
   closeModal?.addEventListener('click', () => hideModal(modal));
-
   window.addEventListener('click', (e) => {
     if (e.target === modal) hideModal(modal);
   });
 }
+
 
 /**
  * Contact form logic

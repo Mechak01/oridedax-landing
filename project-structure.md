@@ -5,9 +5,16 @@ landing-page
     README.md
     .gitignore
     assets
-        images
-        fonts
-        icons
+        images/
+            mockups/
+        fonts/
+        icons/
+        illustrations/
+        animations/
+        components/
+            spinningO.html
+        css/
+            spinner.css
     css
         style.css
         components.css
@@ -19,6 +26,7 @@ landing-page
         scroll.js
         typing.js
         SlideShow.js
+        reviews.js
     components
     dist
         index.html

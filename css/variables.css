@@ -1,0 +1,41 @@
+:root {
+  /* ======== BRAND COLORS ======== */
+  --primary-blue: #1E3A8A;         /* Deep trust blue */
+  --primary-blue-dark: #162C6B;
+  --vibrant-orange: #FF6F00;       /* Energy & call to action */
+  --vibrant-orange-light: #FF8C42;
+  --light-grey: #F9FAFB;
+  --dark-grey: #333333;
+  --white: #FFFFFF;
+
+  /* ======== GRADIENTS ======== */
+  --gradient-hero: linear-gradient(135deg, var(--primary-blue), var(--vibrant-orange));
+  --gradient-orange: linear-gradient(135deg, #FF6F00, #FF8C42);
+  --gradient-blue: linear-gradient(135deg, #1E3A8A, #2E58C5);
+
+  /* ======== FONTS ======== */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+
+  /* ======== EFFECTS ======== */
+  --shadow-soft: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --shadow-strong: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --blur-bg: blur(10px);
+
+  /* ======== TRANSITIONS ======== */
+  --transition-fast: all 0.2s ease;
+  --transition-base: all 0.3s ease;
+  --transition-slow: all 0.6s ease;
+
+  /* ======== RADIUS ======== */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* ======== SPACING ======== */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+}

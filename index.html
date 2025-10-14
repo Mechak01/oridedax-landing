@@ -1,51 +1,72 @@
+<!--index.html-->
+
+<!-- ===========================
+   OrideDax Landing Page
+   Guiding Your Next Ride
+=========================== -->
+
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
+  <!-- ========== META & TITLE ========== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OrideDax – Guiding Your Next Ride</title>
 
+  <!-- ========== FONTS ========== -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <!-- ========== STYLESHEETS ========== -->
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/components.css" />
   <link rel="stylesheet" href="css/layout.css" />
 </head>
+
+
 <body>
 
-  <!-- ✅ HERO / HEADER -->
+  <!-- ===========================
+      HERO / HEADER SECTION
+  ============================ -->
   <header class="hero">
     <div class="hero-overlay"></div>
 
-    <!-- Navigation -->
+    <!-- 🔹 NAVIGATION BAR -->
     <nav class="navbar">
       <div class="navbar-inner">
+
+        <!-- Logo -->
         <div class="nav-brand">
           <img src="assets/images/LOGO.png" alt="OrideDax Logo" class="nav-logo">
         </div>
 
+        <!-- Mobile Hamburger Menu -->
         <div class="hamburger" id="hamburger">
           <span></span>
           <span></span>
           <span></span>
         </div>
 
+        <!-- Navigation Links -->
         <ul class="nav-links" id="nav-links">
           <li><a href="#about">Over</a></li>
+          <li><a href="#services">Diensten</a></li>
           <li><a href="#features">Functies</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="#">Privacybeleid</a></li>
         </ul>
+
       </div>
     </nav>
 
 
-    <!-- Hero Content -->
+    <!-- 🔹 HERO CONTENT -->
     <div class="hero-content">
       <h1 class="hero-title"><span id="typing-text"></span></h1>
       <p class="hero-subtitle">Vind snel en veilig een rijbegeleider in België</p>
-      <!-- Waitlist form unchanged -->
+
+      <!-- Waitlist Form -->
       <form id="waitlist-form" class="waitlist-form">
         <input type="email" placeholder="Voer je e-mailadres in" required />
         <label>
@@ -54,96 +75,327 @@
         </label>
         <button type="submit" class="btn-primary">Join the Waitlist</button>
       </form>
+
+      <!-- Success Modal (Waitlist Confirmation) -->
+      <div id="successModal" class="waitlist-success-modal">
+        <div class="waitlist-success-content">
+          <h3>✅ Bedankt!</h3>
+          <p>Je bent succesvol toegevoegd aan de wachtlijst van <strong>OrideDax</strong>.</p>
+          <button id="closeModal" class="btn-primary">Sluiten</button>
+        </div>
+      </div>
     </div>
   </header>
 
 
-  <!-- ✅ ABOUT -->
+
+  <!-- ===========================
+      ABOUT SECTION
+  ============================ -->
   <section class="about" id="about">
     <div class="about-container">
+
+      <!-- 🔹 ABOUT TEXT BLOCK -->
       <div class="about-text reveal">
         <h2>Over OrideDax</h2>
+
         <p>
-          OrideDax verbindt kandidaat-bestuurders met ervaren begeleiders in België.  
-          Ons doel is om leren rijden makkelijker, veiliger en toegankelijker te maken.  
-          Met ons platform vind je snel een betrouwbare begeleider in jouw buurt,  
-          plan je sessies eenvoudig in en blijf je in contact via onze veilige chat.
+          OrideDax verbindt kandidaat-bestuurders met ervaren begeleiders in heel België.
+          Ons platform maakt het leerproces eenvoudiger, veiliger en persoonlijker —
+          zodat je met vertrouwen de weg op kunt.
+          Vind snel een betrouwbare begeleider in jouw buurt, plan sessies moeiteloos in
+          en blijf altijd in contact via onze beveiligde chat.
         </p>
+
         <p>
-          Samen bouwen we aan meer vertrouwen op de weg.
+          Samen zorgen we ervoor dat elke rit een stap dichter brengt bij je rijbewijs —
+          en bij echte rijervaring.
         </p>
+
         <a href="#features" class="btn-primary">Ontdek de functies</a>
       </div>
 
-      <!-- ✅ Mockup Slider -->
-      <div class="about-image reveal">
-        <div class="slider" id="mockup-slider">
-          <div class="slides">
-            <img src="assets/images/mockup-phone-calendar.png" alt="Mockup 1">
-            <img src="assets/images/mockup-phone-wallet.png" alt="Mockup 2">
-            <img src="assets/images/mockup-phone.png" alt="Mockup 3">
-          </div>
-
-          <!-- Controls -->
-          <button class="slider-btn prev">&#10094;</button>
-          <button class="slider-btn next">&#10095;</button>
-
-          <!-- Dot indicators -->
-          <div class="slider-dots"></div>
-        </div>
     </div>
   </section>
 
-  <!-- ✅ FEATURES -->
+
+
+  <!-- ===========================
+      SERVICES SECTION
+  ============================ -->
+  <section class="services" id="services">
+
+    <!-- 🔹 BACKGROUND OVERLAY -->
+    <div class="services-overlay"></div>
+
+    <div class="services-container">
+      <h2>Onze Diensten</h2>
+      <p class="services-subtitle">
+        Eenvoudig. Betrouwbaar. Persoonlijk — kies hoe jij wilt leren rijden.
+      </p>
+
+      <!-- 🔹 SERVICES GRID -->
+      <div class="services-grid">
+
+        <!-- Service 1 – Exam Support -->
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <img src="assets/icons/exam.png" alt="Examenbegeleiding icoon" />
+          </div>
+          <h3>Examenbegeleiding</h3>
+          <p>
+            Laat je begeleiden tijdens het officiële rijexamen voor extra rust en zekerheid.
+          </p>
+        </div>
+
+        <!-- Service 2 – Practice Help -->
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <img src="assets/icons/practice.png" alt="Praktijkhulp icoon" />
+          </div>
+          <h3>Praktijkhulp</h3>
+          <p>
+            Oefen met ervaren begeleiders in jouw buurt om echte rijervaring op te doen.
+          </p>
+        </div>
+
+        <!-- Service 3 – Theory Guidance -->
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <img src="assets/icons/theory.png" alt="Theoriebegeleiding icoon" />
+          </div>
+          <h3>Theoriebegeleiding</h3>
+          <p>
+            Bereid je samen met een mentor voor op het theoretisch examen.
+          </p>
+        </div>
+
+      </div><!-- /services-grid -->
+    </div><!-- /services-container -->
+  </section>
+
+
+
+  <!-- ===========================
+      TRANSITION DIVIDER — SERVICES → MOCKUP
+  ============================ -->
+  <div class="section-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path fill="url(#waveGradient)" d="M0,40 C480,100 960,0 1440,60 L1440,100 L0,100 Z"></path>
+      <defs>
+        <linearGradient id="waveGradient" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stop-color="#1E3A8A" stop-opacity="0.08" />
+          <stop offset="100%" stop-color="#FF6F00" stop-opacity="0.08" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+
+
+  <!-- ===========================
+      MOCKUP SLIDER SECTION
+  ============================ -->
+  <section class="mockup-slider-section">
+    <div class="slider" id="mockup-slider">
+
+      <!-- 🔹 SLIDE IMAGES -->
+      <div class="slides">
+        <img src="assets/images/mockups/dashboard-mockup.png" alt="Dashboard Mockup">
+        <img src="assets/images/mockups/matches-mockup.png" alt="Matches Mockup">
+        <img src="assets/images/mockups/services-mockup.png" alt="Services Mockup">
+        <img src="assets/images/mockups/wallet-mockup.png" alt="Wallet Mockup">
+      </div>
+
+      <!-- 🔹 SLIDER CONTROLS -->
+      <button class="slider-btn prev" aria-label="Vorige afbeelding">&#10094;</button>
+      <button class="slider-btn next" aria-label="Volgende afbeelding">&#10095;</button>
+
+      <!-- 🔹 DOT INDICATORS -->
+      <div class="slider-dots"></div>
+
+    </div>
+  </section>
+
+
+
+  <!-- ===========================
+      DOWNLOAD APP SECTION
+  ============================ -->
+  <section class="download-app" id="download">
+    <div class="download-container">
+
+      <!-- 🔹 LEFT — APP PREVIEW -->
+      <div class="download-visual reveal">
+        <img src="assets/images/mockups/dashboard-mockup.png" alt="OrideDax App Preview">
+      </div>
+
+      <!-- 🔹 RIGHT — CONTENT -->
+      <div class="download-content reveal">
+        <h2>Download de OrideDax App</h2>
+
+        <p>
+          Neem OrideDax overal mee naartoe.
+          Ontdek begeleiders in jouw buurt, plan ritten en blijf verbonden —
+          allemaal in één handige app.
+        </p>
+
+        <!-- 🔹 STORE BUTTONS -->
+        <div class="store-buttons">
+
+          <!-- App Store Badge -->
+          <a href="#" class="store-btn" aria-label="Download on the App Store">
+            <img
+              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+              alt="Download on the App Store"
+            />
+          </a>
+
+          <!-- Google Play Badge -->
+          <a href="#" class="store-btn" aria-label="Get it on Google Play">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+              alt="Get it on Google Play"
+            />
+          </a>
+
+        </div><!-- /store-buttons -->
+      </div><!-- /download-content -->
+
+    </div><!-- /download-container -->
+  </section>
+
+
+
+
+  <!--TRANSITION DIVIDER — Between Services → Features-->
+  <div class="section-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path fill="url(#waveGradient)" d="M0,40 C480,100 960,0 1440,60 L1440,100 L0,100 Z"></path>
+      <defs>
+        <linearGradient id="waveGradient" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stop-color="#1E3A8A" stop-opacity="0.08" />
+          <stop offset="100%" stop-color="#FF6F00" stop-opacity="0.08" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+
+
+  <!-- ===========================
+      FEATURES SECTION
+  ============================ -->
   <section class="features" id="features">
     <div class="features-container">
+
+      <!-- 🔹 SECTION HEADING -->
       <h2>Belangrijkste Functies</h2>
       <p class="features-subtitle">
         Alles wat je nodig hebt om veilig en efficiënt je rijervaring op te bouwen.
       </p>
 
+      <!-- 🔹 FEATURES GRID -->
       <div class="features-grid">
+
+        <!-- Feature 1 – Search & Match -->
         <div class="feature-card glass-card reveal">
           <img src="assets/icons/search.png" alt="Zoeken icoon" />
           <h3>Zoek & Match</h3>
-          <p>Vind begeleiders in jouw buurt op basis van locatie, ervaring en beschikbaarheid.</p>
+          <p>
+            Vind begeleiders in jouw buurt op basis van locatie, ervaring en beschikbaarheid.
+          </p>
         </div>
 
+        <!-- Feature 2 – In-app Chat -->
         <div class="feature-card glass-card reveal">
           <img src="assets/icons/chat.png" alt="Chat icoon" />
           <h3>In-app Chat</h3>
-          <p>Blijf in contact met je begeleider via onze veilige berichtenfunctie.</p>
+          <p>
+            Blijf in contact met je begeleider via onze veilige berichtenfunctie.
+          </p>
         </div>
 
+        <!-- Feature 3 – Planning -->
         <div class="feature-card glass-card reveal">
           <img src="assets/icons/calendar.png" alt="Kalender icoon" />
           <h3>Planning</h3>
-          <p>Plan eenvoudig sessies in met de ingebouwde kalenderfunctie.</p>
+          <p>
+            Plan eenvoudig sessies in met de ingebouwde kalenderfunctie.
+          </p>
         </div>
 
+        <!-- Feature 4 – Reviews & Safety -->
         <div class="feature-card glass-card reveal">
           <img src="assets/icons/reviews.png" alt="Ster icoon" />
           <h3>Reviews & Veiligheid</h3>
-          <p>Laat beoordelingen achter en gebruik onze veiligheidsopties zoals de noodknop.</p>
+          <p>
+            Laat beoordelingen achter en gebruik onze veiligheidsopties zoals de noodknop.
+          </p>
         </div>
-      </div>
-    </div>
+
+      </div><!-- /features-grid -->
+    </div><!-- /features-container -->
   </section>
 
-  <!-- ✅ CONTACT -->
+
+
+  <!-- ===========================
+      REVIEWS SECTION
+  ============================ -->
+  <section class="reviews" id="reviews">
+    <div class="reviews-container">
+
+      <!-- 🔹 SECTION HEADING -->
+      <h2>Wat gebruikers zeggen over OrideDax</h2>
+      <p class="reviews-subtitle">
+        Echte ervaringen van mensen die OrideDax ontdekten.
+      </p>
+
+      <!-- 🔹 REVIEWS SLIDER -->
+      <div class="review-slider">
+
+        <!-- Prev Button -->
+        <button class="slider-btn prev" id="reviews-prev" aria-label="Vorige review">&#10094;</button>
+
+        <!-- Dynamic Slides -->
+        <div class="review-slides" id="review-slides">
+          <!-- Placeholder reviews will be injected dynamically -->
+        </div>
+
+        <!-- Next Button -->
+        <button class="slider-btn next" id="reviews-next" aria-label="Volgende review">&#10095;</button>
+      </div>
+
+      <!-- 🔹 PAGINATION DOTS -->
+      <div class="review-dots" id="review-dots"></div>
+
+    </div><!-- /reviews-container -->
+  </section>
+
+
+
+  <!-- ===========================
+      CONTACT SECTION
+  ============================ -->
   <section class="contact" id="contact">
     <div class="contact-container">
+
+      <!-- 🔹 CONTACT INFO -->
       <div class="contact-info">
         <h2>Neem Contact Op</h2>
-        <p>Heb je vragen? We helpen je graag verder. Vul het formulier in of stuur ons rechtstreeks een bericht.</p>
+        <p>
+          Heb je vragen? We helpen je graag verder.
+          Vul het formulier in of stuur ons rechtstreeks een bericht.
+        </p>
         <ul>
           <li>📧 info@oridedax.be</li>
           <li>📍 Antwerpen, België</li>
-          <li>📱 +32 123 45 67 89</li>
         </ul>
       </div>
 
-      <form id="contact-form" class="contact-form">
+      <!-- 🔹 CONTACT FORM -->
+      <form id="contact-form" class="contact-form" aria-label="Contactformulier">
         <label for="name">Naam</label>
         <input type="text" id="name" name="name" required />
 
@@ -155,10 +407,36 @@
 
         <button type="submit" class="btn-primary">Verstuur</button>
       </form>
-    </div>
 
-    <!-- Success Modal -->
-    <div id="contactSuccess" class="contact-success-modal">
+      <!-- 🔹 HEADQUARTERS MAP -->
+      <div class="contact-map">
+        <h3>📍 Hoofdkantoor</h3>
+        <p>Antwerpen, België</p>
+
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps?q=Antwerpen,Belgium&output=embed"
+            title="OrideDax hoofdkantoor — Antwerpen, België"
+            aria-label="Kaart van het OrideDax hoofdkantoor in Antwerpen, België"
+            allowfullscreen
+          ></iframe>
+
+          <noscript>
+            <p>
+              Bekijk onze locatie op
+              <a href="https://www.google.com/maps?q=Antwerpen,Belgium" target="_blank" rel="noopener noreferrer">
+                Google Maps
+              </a>.
+            </p>
+          </noscript>
+        </div><!-- /map-frame -->
+      </div><!-- /contact-map -->
+
+    </div><!-- /contact-container -->
+
+
+    <!-- 🔹 SUCCESS MODAL -->
+    <div id="contactSuccess" class="contact-success-modal" role="alert">
       <div class="contact-success-content">
         <p>✅ Bedankt! Je bericht is verzonden.</p>
       </div>
@@ -166,22 +444,31 @@
   </section>
 
 
-  <!-- ✅ FOOTER -->
+
+  <!-- ===========================
+      FOOTER SECTION
+  ============================ -->
   <footer class="footer reveal">
     <div class="footer-container">
+
+      <!-- 🔹 BRAND & SLOGAN -->
       <div class="footer-brand">
         <img src="assets/images/LOGO.png" alt="OrideDax Logo" class="footer-logo" />
         <p class="footer-slogan">Guiding Your Next Ride</p>
       </div>
 
-      <nav class="footer-nav">
+      <!-- 🔹 FOOTER NAVIGATION -->
+      <nav class="footer-nav" aria-label="Footer navigatie">
         <a href="#about">Over</a>
+        <a href="#services">Diensten</a>
         <a href="#features">Functies</a>
         <a href="#contact">Contact</a>
         <a href="#">Privacybeleid</a>
       </nav>
 
+      <!-- 🔹 SOCIAL LINKS -->
       <div class="footer-social">
+
         <!-- Facebook -->
         <a href="#" aria-label="Facebook">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#1877F2">
@@ -196,26 +483,32 @@
           </svg>
         </a>
 
-        <!-- X  -->
-        
+        <!-- X / TikTok placeholders for future icons -->
+      </div><!-- /footer-social -->
+    </div><!-- /footer-container -->
 
-        <!-- TikTok Icon -->
-        
-
-      </div>
-    </div>
-
+    <!-- 🔹 FOOTER BOTTOM -->
     <div class="footer-bottom">
       <p>&copy; 2025 OrideDax. Alle rechten voorbehouden.</p>
     </div>
   </footer>
 
+
+
   <!-- ✅ Scripts -->
-  <script src="js/typing.js" defer></script>
-  <script src="js/scroll.js" defer></script>
-  <script src="js/form.js" defer></script>
-  <script src="js/SlideShow.js" defer></script>
-  <script src="js/main.js" defer></script>
+    <!-- JS Core -->
+    <script src="js/main.js" defer></script>
+    <script src="js/scroll.js" defer></script>
+
+    <!-- JS UI Components -->
+    <script src="js/SlideShow.js" defer></script>
+    <script src="js/reviews.js" defer></script>
+
+    <!-- JS Forms -->
+    <script src="js/form.js" defer></script>
+    <script src="js/typing.js" defer></script>
+
+
 
 </body>
 </html>
