@@ -2,6 +2,7 @@ landing-page
     index.html
     package.json
     project-structure.md
+    policies.html
     README.md
     .gitignore
     assets

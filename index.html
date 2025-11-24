@@ -39,17 +39,22 @@
 
         <!-- Logo -->
         <div class="nav-brand">
-          <img src="assets/images/LOGO.png" alt="OrideDax Logo" class="nav-logo">
+          <a href="index.html" class="nav-brand">
+            <img src="assets/images/LOGO.png" alt="OrideDax Logo" class="nav-logo">
+          </a>
         </div>
 
-        <!-- Mobile Hamburger Menu -->
+        <!-- Hamburger -->
         <div class="hamburger" id="hamburger">
           <span></span>
           <span></span>
           <span></span>
         </div>
 
-        <!-- Navigation Links -->
+        <!-- 🔹 PLACE OVERLAY FIRST -->
+        <div class="menu-overlay" id="menu-overlay"></div>
+
+        <!-- 🔹 THEN THE NAV LINKS -->
         <ul class="nav-links" id="nav-links">
           <li><a href="#about">Over</a></li>
           <li><a href="#services">Diensten</a></li>
@@ -61,6 +66,12 @@
     </nav>
 
 
+    <!-- 🔹 MOBILE MENU OVERLAY -->
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <!-- 🪐 Orbit Accent Layer -->
+    <div class="hero-bg-orbits"></div>
+
     <!-- 🔹 HERO CONTENT -->
     <div class="hero-content">
       <h1 class="hero-title"><span id="typing-text"></span></h1>
@@ -71,7 +82,7 @@
         <input type="email" placeholder="Voer je e-mailadres in" required />
         <label>
           <input type="checkbox" id="agreePolicy" required />
-          Ik ga akkoord met het <a href="#">privacybeleid</a>
+          Ik ga akkoord met het <a href="policies.html">privacybeleid</a>
         </label>
         <button type="submit" class="btn-primary">Join the Waitlist</button>
       </form>
@@ -90,33 +101,97 @@
 
 
   <!-- ===========================
+      PROBLEM SECTION
+  =========================== -->
+ <section class="problem reveal" id="problem">
+    <div class="problem-container">
+      <h2 class="reveal">Waarom het vandaag zo moeilijk is om je rijbewijs te halen</h2>
+      <p class="problem-intro reveal">
+        Het Belgische rijopleiding-systeem is duur, versnipperd en niet afgestemd op de nieuwe generatie bestuurders.
+      </p>
+
+      <div class="problem-timeline">
+        <!-- Flow path SVG -->
+        <svg class="problem-flow" viewBox="0 0 100 800" preserveAspectRatio="none">
+          <path d="M50 0 
+                  C70 100, 70 100, 50 200 
+                  C30 300, 30 300, 50 400
+                  C70 500, 70 500, 50 600
+                  C30 700, 30 700, 50 800" />
+        </svg>
+
+        <!-- Problem cards -->
+        <div class="problem-item left reveal">
+          <div class="problem-card">
+            <h3>1. Te hoge kosten</h3>
+            <p>Elke poging kost geld en stress.</p>
+          </div>
+        </div>
+
+        <div class="problem-item right reveal">
+          <div class="problem-card">
+            <h3>2. Een ingewikkeld proces</h3>
+            <p>Van theorie tot praktijk — alles versnipperd.</p>
+          </div>
+        </div>
+
+        <div class="problem-item left reveal">
+          <div class="problem-card">
+            <h3>3. Geen garantie op succes</h3>
+            <p>Zelfs met oefening blijft slagen onzeker.</p>
+          </div>
+        </div>
+
+        <div class="problem-item right reveal">
+          <div class="problem-card">
+            <h3>4. Niet afgestemd op jongeren</h3>
+            <p>Het systeem voelt ouderwets aan.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="problem-cta reveal">
+        <p><strong>OrideDax</strong> verandert dit.</p>
+        <a href="#about" class="btn-primary">Ontdek onze oplossing</a>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- ===========================
       ABOUT SECTION
   ============================ -->
   <section class="about" id="about">
-    <div class="about-container">
+    <div class="about-container reveal">
 
-      <!-- 🔹 ABOUT TEXT BLOCK -->
-      <div class="about-text reveal">
-        <h2>Over OrideDax</h2>
+      <h2>De oplossing: <span class="highlight">OrideDax</span></h2>
 
-        <p>
-          OrideDax verbindt kandidaat-bestuurders met ervaren begeleiders in heel België.
-          Ons platform maakt het leerproces eenvoudiger, veiliger en persoonlijker —
-          zodat je met vertrouwen de weg op kunt.
-          Vind snel een betrouwbare begeleider in jouw buurt, plan sessies moeiteloos in
-          en blijf altijd in contact via onze beveiligde chat.
-        </p>
+      <p class="about-intro">
+        Waar het huidige systeem verwarrend, duur en versnipperd is, brengt <strong>OrideDax</strong> alles samen in één helder platform.
+        Wij verbinden <strong>kandidaat-bestuurders</strong> met betrouwbare <strong>begeleiders</strong>, <strong>rijscholen</strong> en <strong>instructeurs</strong>
+        — zodat jij eindelijk overzicht, keuzevrijheid en begeleiding op maat krijgt.
+      </p>
 
-        <p>
-          Samen zorgen we ervoor dat elke rit een stap dichter brengt bij je rijbewijs —
-          en bij echte rijervaring.
-        </p>
+      <p>
+        Met OrideDax plan je lessen moeiteloos, beheer je beschikbaarheden in realtime en blijf je in contact via onze geïntegreerde chat.
+        Geen telefoontjes, geen verwarring — gewoon duidelijkheid, transparantie en vertrouwen.
+      </p>
 
-        <a href="#features" class="btn-primary">Ontdek de functies</a>
+      <p>
+        Onze missie is eenvoudig: <strong>rijopleidingen menselijker, slimmer en betaalbaarder maken.</strong>
+        We bouwen aan een toekomst waarin elke rit telt — en elke kandidaat met vertrouwen zijn rijbewijs behaalt.
+      </p>
+
+      <div class="about-cta">
+        <a href="#features" class="btn-primary">Ontdek hoe het werkt</a>
       </div>
 
     </div>
   </section>
+
 
 
 
@@ -201,10 +276,9 @@
 
       <!-- 🔹 SLIDE IMAGES -->
       <div class="slides">
-        <img src="assets/images/mockups/dashboard-mockup.png" alt="Dashboard Mockup">
-        <img src="assets/images/mockups/matches-mockup.png" alt="Matches Mockup">
-        <img src="assets/images/mockups/services-mockup.png" alt="Services Mockup">
-        <img src="assets/images/mockups/wallet-mockup.png" alt="Wallet Mockup">
+        <img src="assets/images/mockups/searchPreview.png" alt="Dashboard Mockup">
+        <img src="assets/images/mockups/CalendarPreview.png" alt="Matches Mockup">
+        <img src="assets/images/mockups/MatchesPreview.png" alt="Wallet Mockup">
       </div>
 
       <!-- 🔹 SLIDER CONTROLS -->
@@ -218,17 +292,28 @@
   </section>
 
 
+   <!-- ===========================
+      TRANSITION DIVIDER — SERVICES → MOCKUP
+  ============================ -->
+  <div class="section-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path fill="url(#waveGradient)" d="M0,40 C480,100 960,0 1440,60 L1440,100 L0,100 Z"></path>
+      <defs>
+        <linearGradient id="waveGradient" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stop-color="#1E3A8A" stop-opacity="0.08" />
+          <stop offset="100%" stop-color="#FF6F00" stop-opacity="0.08" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+
 
   <!-- ===========================
       DOWNLOAD APP SECTION
   ============================ -->
   <section class="download-app" id="download">
     <div class="download-container">
-
-      <!-- 🔹 LEFT — APP PREVIEW -->
-      <div class="download-visual reveal">
-        <img src="assets/images/mockups/dashboard-mockup.png" alt="OrideDax App Preview">
-      </div>
 
       <!-- 🔹 RIGHT — CONTENT -->
       <div class="download-content reveal">
@@ -261,6 +346,11 @@
 
         </div><!-- /store-buttons -->
       </div><!-- /download-content -->
+
+      <!-- 🔹 LEFT — APP PREVIEW -->
+      <div class="download-visual reveal">
+        <img src="assets/images/123piano.png" alt="OrideDax App Preview">
+      </div>
 
     </div><!-- /download-container -->
   </section>
@@ -380,21 +470,17 @@
   ============================ -->
   <section class="contact" id="contact">
     <div class="contact-container">
-
-      <!-- 🔹 CONTACT INFO -->
-      <div class="contact-info">
+      <!-- 🔹 LEFT: Contact Info -->
+      <div class="contact-left">
         <h2>Neem Contact Op</h2>
-        <p>
-          Heb je vragen? We helpen je graag verder.
-          Vul het formulier in of stuur ons rechtstreeks een bericht.
-        </p>
+        <p>Heb je vragen? We helpen je graag verder. Vul het formulier in of stuur ons een bericht.</p>
         <ul>
           <li>📧 info@oridedax.be</li>
           <li>📍 Antwerpen, België</li>
         </ul>
       </div>
 
-      <!-- 🔹 CONTACT FORM -->
+      <!-- 🔹 RIGHT: Contact Form -->
       <form id="contact-form" class="contact-form" aria-label="Contactformulier">
         <label for="name">Naam</label>
         <input type="text" id="name" name="name" required />
@@ -407,41 +493,17 @@
 
         <button type="submit" class="btn-primary">Verstuur</button>
       </form>
-
-      <!-- 🔹 HEADQUARTERS MAP -->
-      <div class="contact-map">
-        <h3>📍 Hoofdkantoor</h3>
-        <p>Antwerpen, België</p>
-
-        <div class="map-frame">
-          <iframe
-            src="https://www.google.com/maps?q=Antwerpen,Belgium&output=embed"
-            title="OrideDax hoofdkantoor — Antwerpen, België"
-            aria-label="Kaart van het OrideDax hoofdkantoor in Antwerpen, België"
-            allowfullscreen
-          ></iframe>
-
-          <noscript>
-            <p>
-              Bekijk onze locatie op
-              <a href="https://www.google.com/maps?q=Antwerpen,Belgium" target="_blank" rel="noopener noreferrer">
-                Google Maps
-              </a>.
-            </p>
-          </noscript>
-        </div><!-- /map-frame -->
-      </div><!-- /contact-map -->
-
-    </div><!-- /contact-container -->
-
+    </div>
 
     <!-- 🔹 SUCCESS MODAL -->
-    <div id="contactSuccess" class="contact-success-modal" role="alert">
+    <div id="contactSuccess" class="contact-success-modal" role="alert" aria-live="polite">
       <div class="contact-success-content">
         <p>✅ Bedankt! Je bericht is verzonden.</p>
       </div>
     </div>
   </section>
+
+
 
 
 
@@ -463,7 +525,7 @@
         <a href="#services">Diensten</a>
         <a href="#features">Functies</a>
         <a href="#contact">Contact</a>
-        <a href="#">Privacybeleid</a>
+        <a href="policies.html">Privacybeleid</a>
       </nav>
 
       <!-- 🔹 SOCIAL LINKS -->
