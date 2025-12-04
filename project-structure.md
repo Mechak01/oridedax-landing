@@ -10,6 +10,7 @@ landing-page
             mockups/
         fonts/
         icons/
+            favicons/
         illustrations/
         animations/
         components/
