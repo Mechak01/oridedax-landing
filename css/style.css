@@ -14,6 +14,12 @@ html, body {
   height: 100%;
 }
 
+body.menu-open {
+  overflow: hidden;
+  touch-action: none;
+}
+
+
 /* fonts */
 h1, .h1 {
   font-family: "Montserrat", sans-serif;
@@ -97,20 +103,18 @@ button, .btn, .label {
 /*                                                                                                                         /                                                                                                                     /
 /*------------------------------------------------------------------------------------------------------------------------*/
 
-/*------------------------------------------------------------------------------------------------------------------------
-   START OF NAVBAR SECTION STYLES
-------------------------------------------------------------------------------------------------------------------------*/
+/* ============================================================
+   NAVBAR — CLEAN, FINAL, BUG-FREE VERSION
+============================================================ */
 
-/* ============================================
-   ✅ UNIVERSAL NAVBAR BASE
-============================================ */
+/* =============== DESKTOP BASE =============== */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 50;
-  background: rgba(14, 43, 92, 0.6);
+  z-index: 500;
+  background: rgba(14, 43, 92, 0.55);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -120,25 +124,22 @@ button, .btn, .label {
 .navbar-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem; /* desktop spacing */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: padding 0.35s ease;
 }
 
-/* ============================================
-   ✅ LOGO + LINKS (DESKTOP)
-============================================ */
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
 }
 
 .nav-logo {
   width: 80px;
   height: auto;
-  transition: width 0.3s ease;
+  transition: width 0.35s ease;
 }
 
 .nav-links {
@@ -148,9 +149,9 @@ button, .btn, .label {
 }
 
 .nav-links a {
-  color: #fff;
-  text-decoration: none;
+  color: white;
   font-weight: 500;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
@@ -158,23 +159,22 @@ button, .btn, .label {
   color: #FF6F00;
 }
 
-/* ============================================
-   ✅ NAVBAR SHRINK EFFECT
-============================================ */
+
+/* =============== DESKTOP SHRINK EFFECT =============== */
 .navbar.shrink {
   background: rgba(14, 43, 92, 0.88);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+  border-bottom: 1px solid rgba(255,255,255,0.18);
 }
 
 .navbar.shrink .navbar-inner {
-  padding: 0.35rem 2rem;
+  padding: 0.4rem 2rem;
 }
 
 .navbar.shrink .nav-logo {
   width: 65px;
 }
 
+/* Expand when hovering */
 .navbar.shrink:hover .navbar-inner {
   padding: 1rem 2rem;
 }
@@ -183,129 +183,208 @@ button, .btn, .label {
   width: 80px;
 }
 
-/* ============================================
-   ✅ HAMBURGER BASE (HIDDEN BY DEFAULT)
-============================================ */
+
+
+/* ============================================================
+   HAMBURGER (DESKTOP: hidden)
+============================================================ */
 .hamburger {
-  display: none; /* hidden on desktop */
+  display: none;
+  width: 34px;
+  height: 34px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
-  width: 34px;
-  height: 34px;
+  gap: 6px;
   cursor: pointer;
-  z-index: 2500; /* ✅ ensure it's above drawer */
-  transition: transform 0.3s ease;
-  position: fixed; /* ✅ ensure it stays visible */
-  top: 1.5rem;
-  right: 2rem;
+  z-index: 3000;
 }
-
 
 .hamburger span {
-  display: block;
   width: 28px;
   height: 3px;
-  background: #fff;
+  background: white;
   border-radius: 2px;
   transition: all 0.3s ease;
-  transform-origin: center;
 }
 
-/* ============================================
-   ✅ MOBILE STYLES ONLY
-============================================ */
+/* X animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+.hamburger.active span {
+  background: #FF6F00;
+}
+
+
+/* ==========================================================================
+   📱 FINAL CLEAN MOBILE NAVIGATION (single unified block)
+   ========================================================================== */
 @media (max-width: 768px) {
-  /* show hamburger on mobile */
+
+  /* ===========================
+     HAMBURGER
+  ============================ */
   .hamburger {
     display: flex;
+    position: fixed;
+    top: 1rem;
+    right: 1.4rem;
+    z-index: 3001;
   }
 
-  /* drawer menu */
+
+  /* Align hamburger (close button) perfectly with logo */
+  .nav-links.active ~ .hamburger {
+    position: absolute !important;
+    top: 1.7rem !important;          /* vertical alignment tweak */
+    right: 1.4rem !important;
+    transform: translateY(-50%);     /* centers it beautifully */
+    z-index: 4000 !important;
+  }
+
+
+
+  /* ===========================
+     NAVBAR COMPACT MODE
+  ============================ */
+  .navbar {
+    height: 60px;
+    padding: 0;
+    background: rgba(14, 43, 92, 0.88);
+    box-shadow: none;
+  }
+
+  .navbar-inner {
+    padding: 0.6rem 1.4rem;
+  }
+
+  .nav-logo {
+    width: 60px;
+  }
+
+
+  /* ===========================
+     FULLSCREEN MOBILE MENU
+  ============================ */
   .nav-links {
     position: fixed;
-    top: 0;
-    right: -100%;
+    inset: 0;
     height: 100vh;
-    width: 75%;
-    max-width: 340px;
-    margin: 0;                /* ✅ Remove any offset */
-    padding-top: 0;           /* ✅ Remove any padding pushing it down */
-    background: rgba(14, 43, 92, 0.97);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
+    width: 100%;
+    background: #0e2b5c;
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+    z-index: 2000;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.25);
-    z-index: 2000;            /* ✅ Now higher than navbar */
-    border-top-left-radius: 0; /* optional */
-    border-top-right-radius: 0;
+    justify-content: flex-start;
+    padding-inline: 1.4rem;
   }
-
-  .navbar {
-    z-index: 100; /* ✅ keep below drawer when open */
-  }
-
-
 
   .nav-links.active {
-    right: 0;
-  }
-
-  /* overlay */
-  .menu-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.25); /* 🟠 lighter dim */
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s ease;
-    z-index: 900;
-  }
-
-  .menu-overlay.active {
-    opacity: 1;
-    pointer-events: all;
+    transform: translateX(0);
   }
 
 
-
-  /* ======================================
-     ✅ HAMBURGER → X TRANSFORMATION
-  ====================================== */
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+  /* ===========================
+     MOBILE MENU HEADER (logo + X)
+  ============================ */
+  .mobile-menu-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0.2rem 0.8rem;
+    position: relative;
   }
 
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
+  .mobile-menu-logo img {
+    width: 70px;
+    height: auto;
   }
 
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+  .mobile-menu-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.25);
+    margin: 0.6rem 0 2rem;
   }
 
-  /* keep icon fixed and visible */
-  .hamburger.active {
-    position: fixed;
-    top: 1.5rem;
-    right: 2rem;
-    /* ❌ remove rotate(90deg) — it broke the X */
-    transform: none;
+
+  /* ===========================
+     MENU LINKS
+  ============================ */
+  .nav-links li {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    margin: 0.8rem 0;
   }
 
-  /* optional: orange color for active X */
-  .hamburger.active span {
-    background: #FF6F00;
+  .nav-links a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: white;
+    font-weight: 600;
+    display: block;
+    padding: 0.6rem 0;
+    transition: color 0.25s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--vibrant-orange);
+  }
+
+
+  /* Prevent scroll behind menu */
+  body.menu-open {
+    overflow: hidden;
   }
 }
+
+
+
+/* ==========================================================================
+   DESKTOP — completely hide mobile-only menu header
+   ========================================================================== */
+@media (min-width: 769px) {
+  .mobile-menu-header-item,
+  .mobile-menu-header,
+  .mobile-menu-logo,
+  .mobile-menu-logo img,
+  .mobile-menu-divider {
+    display: none !important;
+  }
+
+  /* Restore desktop nav-links layout */
+  .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5rem;
+    height: auto !important;
+    background: transparent !important;
+    position: static !important;
+    transform: none !important;
+    padding: 0 !important;
+  }
+}
+
+
 
 
 
@@ -338,15 +417,18 @@ button, .btn, .label {
 =================================================== */
 .hero {
   position: relative;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh;      /* fills viewport but grows if needed */
+  height: auto;           /* allows hero to expand naturally */
+  display: block;         /* removes the scroll-causing flexbox */
   text-align: center;
   color: #fff;
   background: linear-gradient(135deg, #1E3A8A 0%, #3B4FA5 30%, #FF6F00 90%);
-  overflow: hidden;
+  padding-top: 8rem;      /* spacing from navbar */
+  padding-bottom: 4rem;   /* breathing room */
+  overflow: visible;      /* STOP internal scrollbars */
 }
+
+
 
 .hero-content {
   position: relative;
@@ -440,6 +522,13 @@ button, .btn, .label {
   box-shadow: 0 8px 30px rgba(0,0,0,0.25);
 }
 
+.waitlist-form {
+  max-width: 400px;          /* keeps form compact */
+  margin: 0 auto;            /* centers the form horizontally */
+  overflow: visible !important; /* stop internal scrolling */
+}
+
+
 .waitlist-form input[type="email"] {
   padding: 0.9rem;
   border: none;
@@ -448,6 +537,16 @@ button, .btn, .label {
   font-size: 1rem;
   font-family: var(--font-body);
 }
+
+
+.waitlist-form input[type="email"],
+.waitlist-form input,
+.waitlist-form textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 
 .waitlist-form label {
   font-size: 0.9rem;
@@ -657,10 +756,12 @@ button, .btn, .label {
 
 .problem {
   position: relative;
-  padding: 8rem 2rem 10rem;
+  padding: 6rem 1.5rem 6rem;
   background: linear-gradient(180deg, #132b67 0%, #1E3A8A 60%, #0f1f4a 100%);
-  overflow: hidden;
+  overflow: visible; /* 🔥 FIX 1: stop internal scrollbars */
+  height: auto;      /* 🔥 FIX 2: allow section to grow naturally */
 }
+
 
 /* --- Background glow --- */
 .problem::before {
@@ -671,6 +772,8 @@ button, .btn, .label {
               radial-gradient(circle at 80% 80%, rgba(30,58,138,0.15), transparent 70%);
   z-index: 0;
 }
+
+
 
 /* --- Container --- */
 .problem-container {
@@ -706,6 +809,7 @@ button, .btn, .label {
   max-width: 1100px;
   margin: 0 auto;
   padding: 3rem 0;
+  overflow: visible; /* 🔥 FIX 3: no internal scroll */
 }
 
 /* SVG flow line */
@@ -832,6 +936,7 @@ button, .btn, .label {
 .problem-cta {
   text-align: center;
   margin-top: 6rem;
+  overflow: visible!important; /* 🔥 FIX 4: kill third scrollbar */
 }
 
 .problem-cta p {
@@ -1007,6 +1112,11 @@ button, .btn, .label {
   transform: translateY(0);
 }
 
+.about {
+  background: linear-gradient(180deg, #0f1f4a 0%, #ffffff 20%, #f7faff 100%);
+}
+
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .about {
@@ -1048,36 +1158,43 @@ button, .btn, .label {
 /*                                                                                                                         /                                                                                                                     /
 /*------------------------------------------------------------------------------------------------------------------------*/
 
+/* -----------------------------------------------------------
+   SERVICES SECTION — Final Clean Version
+----------------------------------------------------------- */
+
 .services {
   position: relative;
-  overflow: hidden;
-   padding: 8rem 2rem 10rem;
+  padding: 8rem 2rem 10rem;
   background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+  overflow: visible;
+  height: auto;
+  min-height: auto;
   z-index: 0;
 }
 
-/* === Background illustration overlay === */
+/* Background illustration */
 .services::before {
   content: "";
   position: absolute;
   inset: 0;
   background: url("../assets/illustrations/exam-illustration.png") center/cover no-repeat;
   filter: blur(12px) brightness(1.05) saturate(0.85);
-  transform: scale(1.05);
-  opacity: 0.3; /* keep it subtle */
+  opacity: 0.3;
   z-index: -2;
+  pointer-events: none;  /* prevent scroll interception */
 }
 
+/* Light gradient overlay */
 .services::after {
-  /* optional tinted gradient overlay to match brand palette */
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.85) 80%);
   z-index: -1;
+  pointer-events: none;
 }
 
-/* --- Content --- */
+/* Services content */
 .services-container {
   position: relative;
   max-width: 1150px;
@@ -1086,6 +1203,7 @@ button, .btn, .label {
   z-index: 2;
 }
 
+/* Typography */
 .services h2 {
   font-family: "Montserrat", sans-serif;
   font-size: 2.5rem;
@@ -1100,14 +1218,17 @@ button, .btn, .label {
   margin-bottom: 3rem;
 }
 
-/* --- Cards --- */
+/* Grid */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   justify-items: center;
+  overflow: visible;
+  max-width: 100%;
 }
 
+/* Cards */
 .service-card {
   background: rgba(255, 255, 255, 0.75);
   -webkit-backdrop-filter: blur(16px);
@@ -1124,6 +1245,7 @@ button, .btn, .label {
   box-shadow: 0 25px 50px rgba(0,0,0,0.12);
 }
 
+/* Icons & text */
 .service-icon {
   width: 80px;
   height: 80px;
@@ -1149,8 +1271,6 @@ button, .btn, .label {
   color: #333;
   line-height: 1.6;
 }
-
-
 
 
 
@@ -1186,63 +1306,6 @@ button, .btn, .label {
 
 /*------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                         /
-/* TRANSITION DIVIDER — Between Services → Features                                                                        /
-/*                                                                                                                         /
-/*------------------------------------------------------------------------------------------------------------------------*/
-
-.section-divider {
-  position: relative;
-  height: 80px;
-  background: linear-gradient(90deg, rgba(30,58,138,0.08), rgba(255,111,0,0.08));
-  overflow: hidden;
-}
-
-/* Animated shimmer line */
-.section-divider::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -60%;
-  width: 220%;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    rgba(255,111,0,0) 0%,
-    rgba(255,111,0,0.35) 50%,
-    rgba(255,111,0,0) 100%
-  );
-  transform: translateY(-50%);
-  animation: shimmerFlow 14s linear infinite;
-  opacity: 0.25; /* soft visibility */
-  filter: blur(1px); /* diffused line */
-}
-
-@keyframes shimmerFlow {
-  0% { left: -60%; }
-  100% { left: 60%; }
-}
-
-
-/* Optional soft glow behind the line */
-.section-divider::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, rgba(255,111,0,0.06) 0%, transparent 70%);
-  filter: blur(12px);
-}
-
-
-
-
-
-
-
-
-
-
-/*------------------------------------------------------------------------------------------------------------------------*/
-/*                                                                                                                         /
 /* START OF mockup slider SECTION STYLES                                                                                               /                                                                                                                   /
 /*                                                                                                                         /                                                                                                                     /
 /*------------------------------------------------------------------------------------------------------------------------*/
@@ -1253,7 +1316,7 @@ button, .btn, .label {
 ========================================================== */
 .mockup-slider-section {
   padding: 8rem 2rem;
-  background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #eef2ff 0%, #ffffff 70%);
 }
 
 .slider {
@@ -1994,26 +2057,6 @@ button, .btn, .label {
   box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15);
 }
 
-/* =============================
-   RESPONSIVE
-============================= */
-@media (max-width: 950px) {
-  .contact-container {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    text-align: center;
-  }
-
-  .contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .contact-left ul {
-    display: inline-block;
-    text-align: left;
-  }
-}
 
 
 /* ===================================================
@@ -2075,16 +2118,15 @@ button, .btn, .label {
 =================================================== */
 @media (max-width: 950px) {
   .contact-container {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .contact-form {
-    max-width: 600px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;   /* 🔥 STACKS ITEMS */
+    gap: 3rem;
+    text-align: center;
+    padding: 0 1rem;
   }
 
   .contact-left {
+    max-width: 100%;
     text-align: center;
   }
 
@@ -2092,7 +2134,14 @@ button, .btn, .label {
     display: inline-block;
     text-align: left;
   }
+
+  .contact-form {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;          /* 🔥 CENTERS THE FORM */
+  }
 }
+
 
 
 
@@ -2218,28 +2267,10 @@ button, .btn, .label {
 /* START OF 🖥️ Full-Height Section Experience (Smooth Flow)                                                                                        /                                                                                                                   /
 /*                                                                                                                         /                                                                                                                     /
 /*------------------------------------------------------------------------------------------------------------------------*/
-.hero {
-  min-height: 100vh;
-}
 
-.about,
-.services,
-.features,
-.reviews,
-.contact {
-  min-height: 100vh;          /* fills the whole screen */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;    /* center vertically */
-  padding: 8rem 2rem;         /* keep breathing room */
-  box-sizing: border-box;     /* include padding in height */
-}
 
-.about { background: linear-gradient(180deg, #ffffff 0%, #f7f9ff 100%); }
-.services { background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%); }
-.features { background: #ffffff; }
-.reviews { background: #f5f7fc; }
-.contact { background: linear-gradient(180deg, #ffffff 0%, #f3f6fc 100%); }
+
+
 
 /*------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                         /
@@ -2270,43 +2301,75 @@ button, .btn, .label {
 /*                                                                                                                         /                                                                                                                     /
 /*------------------------------------------------------------------------------------------------------------------------*/
 
-/* ======================================================================
-   📱 MOBILE OVERFLOW SAFETY FIX
-   Prevents horizontal dragging + blue background on iPhone
-   (Fully supported across all browsers, no nonstandard properties)
+/* ====================================================================== 
+   📱 MOBILE OVERFLOW & iPHONE SAFETY FIX 
+   Clean, minimal, non-destructive 
    ====================================================================== */
 
 @media screen and (max-width: 768px) {
 
+  /* Core: Prevent horizontal scrolling anywhere */
   html, body {
     width: 100%;
-    max-width: 100%;
-    overflow-x: hidden; /* 💯 core fix */
-  }
-
-  /* Ensure all blocks never accidentally exceed the viewport width */
-  section, div, img, .container, .wrapper {
-    max-width: 100%;
     overflow-x: hidden;
   }
 
-  /* Fix for sliders, grids, and flex containers that may stretch */
-  .slides,
-  .review-slides,
-  .services-grid,
-  .features-grid,
-  .problem-timeline,
-  .hero {
-    overflow-x: hidden !important;
+  /* Prevent children from forcing horizontal scroll */
+  section, div, img {
     max-width: 100%;
   }
 
-  /* Global safety: padding + borders never push elements too wide */
+ 
+  /* Universal safety */
   * {
     box-sizing: border-box;
   }
 }
 
+
+
+
+
+/* ====================================================================== 
+   🧹 REMOVE old 100vh forcing / layout overrides 
+   (The original block was breaking the page — this replaces it cleanly)
+   ====================================================================== */
+
+
+/* The problem timeline */
+@media (max-width: 900px) {
+
+  /* Move the vertical flow line to the far left */
+  .problem-flow {
+    left: 20px;
+    transform: none;
+    width: 3px;      /* thin line for mobile */
+  }
+
+  .problem-flow path {
+    stroke-width: 3;
+  }
+
+  /* Fix dot alignment */
+  .problem-item::before {
+    left: 6px !important;    /* always on the left */
+  }
+
+  /* Make timeline cards full-width */
+  .problem-item,
+  .problem-item.left,
+  .problem-item.right {
+    width: 100%;
+    text-align: left;
+    padding-left: 2.5rem;
+  }
+
+  /* Fix card margin so it's properly aligned */
+  .problem-card {
+    margin-left: 1.8rem;
+    margin-right: 0;
+  }
+}
 
 
 
@@ -2329,5 +2392,9 @@ button, .btn, .label {
 /*------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
 
 
