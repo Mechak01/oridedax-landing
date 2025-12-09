@@ -1,5 +1,13 @@
 /* css/style.css */
 
+.anchor-offset {
+  display: block;
+  position: relative;
+  top: -120px;   /* adjust if your header height changes */
+  visibility: hidden;
+}
+
+
 /*------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                         /
 /* START OF GLOBAL AND SHARED SECTION STYLES                                                                                               /                                                                                                                   /
