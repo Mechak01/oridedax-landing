@@ -2374,9 +2374,11 @@ button, .btn, .label {
   }
 
   /* Prevent children from forcing horizontal scroll */
-  section, div, img {
+  img, video, svg {
     max-width: 100%;
+    height: auto;
   }
+
 
  
   /* Universal safety */
@@ -2386,17 +2388,9 @@ button, .btn, .label {
 
   /* Enable scrolling inside hamburger menu */
   .nav-links {
-    /* Allow full vertical scroll range */
-    max-height: 100dvh; /* dynamic viewport height (iOS-safe) */
-    height: auto;
-
     overflow-y: auto;
     overflow-x: hidden;
-
-    /* 🔥 CRITICAL: space for last item + iOS home bar */
-    padding-bottom: calc(3.5rem + env(safe-area-inset-bottom));
-
-    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch; /* iOS only, safe */
   }
 
   /* OrideDax themed scrollbar (desktop & Android) */
