@@ -234,167 +234,6 @@ button, .btn, .label {
 }
 
 
-/* ==========================================================================
-   📱 FINAL CLEAN MOBILE NAVIGATION (single unified block)
-   ========================================================================== */
-@media (max-width: 768px) {
-
-  /* ===========================
-     HAMBURGER
-  ============================ */
-  .hamburger {
-    display: flex;
-    position: fixed;
-    top: 1rem;
-    right: 1.4rem;
-    z-index: 3001;
-  }
-
-
-  /* Align hamburger (close button) perfectly with logo */
-  .nav-links.active ~ .hamburger {
-    position: absolute !important;
-    top: 1.7rem !important;          /* vertical alignment tweak */
-    right: 1.4rem !important;
-    transform: translateY(-50%);     /* centers it beautifully */
-    z-index: 4000 !important;
-  }
-
-
-
-  /* ===========================
-     NAVBAR COMPACT MODE
-  ============================ */
-  .navbar {
-    height: 60px;
-    padding: 0;
-    background: rgba(14, 43, 92, 0.88);
-    box-shadow: none;
-  }
-
-  .navbar-inner {
-    padding: 0.6rem 1.4rem;
-  }
-
-  .nav-logo {
-    width: 60px;
-  }
-
-
-  /* ===========================
-     FULLSCREEN MOBILE MENU
-  ============================ */
-  .nav-links {
-    position: fixed;
-    inset: 0;
-    height: 100vh;
-    width: 100%;
-    background: #0e2b5c;
-    -webkit-backdrop-filter: blur(25px);
-    backdrop-filter: blur(25px);
-    transform: translateX(100%);
-    transition: transform 0.35s ease;
-    z-index: 2000;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-inline: 1.4rem;
-  }
-
-  .nav-links.active {
-    transform: translateX(0);
-  }
-
-
-  /* ===========================
-     MOBILE MENU HEADER (logo + X)
-  ============================ */
-  .mobile-menu-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0.2rem 0.8rem;
-    position: relative;
-  }
-
-  .mobile-menu-logo img {
-    width: 70px;
-    height: auto;
-  }
-
-  .mobile-menu-divider {
-    width: 100%;
-    height: 1px;
-    background: rgba(255,255,255,0.25);
-    margin: 0.6rem 0 2rem;
-  }
-
-
-  /* ===========================
-     MENU LINKS
-  ============================ */
-  .nav-links li {
-    list-style: none;
-    width: 100%;
-    text-align: center;
-    margin: 0.8rem 0;
-  }
-
-  .nav-links a {
-    text-decoration: none;
-    font-size: 1.3rem;
-    color: white;
-    font-weight: 600;
-    display: block;
-    padding: 0.6rem 0;
-    transition: color 0.25s ease;
-  }
-
-  .nav-links a:hover {
-    color: var(--vibrant-orange);
-  }
-
-
-  /* Prevent scroll behind menu */
-  body.menu-open {
-    overflow: hidden;
-  }
-}
-
-
-
-/* ==========================================================================
-   DESKTOP — completely hide mobile-only menu header
-   ========================================================================== */
-@media (min-width: 769px) {
-  .mobile-menu-header-item,
-  .mobile-menu-header,
-  .mobile-menu-logo,
-  .mobile-menu-logo img,
-  .mobile-menu-divider {
-    display: none !important;
-  }
-
-  /* Restore desktop nav-links layout */
-  .nav-links {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 1.5rem;
-    height: auto !important;
-    background: transparent !important;
-    position: static !important;
-    transform: none !important;
-    padding: 0 !important;
-  }
-}
-
-
-
-
 
 
 /*------------------------------------------------------------------------------------------------------------------------*/
@@ -2360,40 +2199,160 @@ button, .btn, .label {
 /*                                                                                                                         /                                                                                                                     /
 /*------------------------------------------------------------------------------------------------------------------------*/
 
-/* ====================================================================== 
-   📱 MOBILE OVERFLOW & iPHONE SAFETY FIX 
-   Clean, minimal, non-destructive 
+
+/* ======================================================================
+   📱 MOBILE NAVIGATION — MERGED, SAFE, iOS-LANDSCAPE FIXED
+   No styles lost. No regressions.
    ====================================================================== */
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
 
-  /* Core: Prevent horizontal scrolling anywhere */
+  /* ===========================
+     GLOBAL MOBILE SAFETY
+  ============================ */
   html, body {
     width: 100%;
     overflow-x: hidden;
   }
 
-  /* Prevent children from forcing horizontal scroll */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
   img, video, svg {
     max-width: 100%;
     height: auto;
   }
 
 
- 
-  /* Universal safety */
-  * {
-    box-sizing: border-box;
+  /* ===========================
+     HAMBURGER
+  ============================ */
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 1rem;
+    right: 1.4rem;
+    z-index: 3001;
   }
 
-  /* Enable scrolling inside hamburger menu */
+  .nav-links.active ~ .hamburger {
+    position: absolute !important;
+    top: 1.7rem !important;
+    right: 1.4rem !important;
+    transform: translateY(-50%);
+    z-index: 4000 !important;
+  }
+
+
+  /* ===========================
+     NAVBAR COMPACT MODE
+  ============================ */
+  .navbar {
+    height: 60px;
+    padding: 0;
+    background: rgba(14, 43, 92, 0.88);
+    box-shadow: none;
+  }
+
+  .navbar-inner {
+    padding: 0.6rem 1.4rem;
+  }
+
+  .nav-logo {
+    width: 60px;
+  }
+
+
+  /* ===========================
+     FULLSCREEN MOBILE MENU
+     (iOS-safe height model)
+  ============================ */
   .nav-links {
+    position: fixed;
+    inset: 0;
+    height: 100vh;          /* ✅ restore this */
+    width: 100%;
+
+    background: #0e2b5c;
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+    z-index: 2000;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-inline: 1.4rem;
+
     overflow-y: auto;
     overflow-x: hidden;
-    -webkit-overflow-scrolling: touch; /* iOS only, safe */
+    -webkit-overflow-scrolling: touch;
+
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+
   }
 
-  /* OrideDax themed scrollbar (desktop & Android) */
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+
+  /* ===========================
+     MOBILE MENU HEADER
+  ============================ */
+  .mobile-menu-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0.2rem 0.8rem;
+  }
+
+  .mobile-menu-logo img {
+    width: 70px;
+    height: auto;
+  }
+
+  .mobile-menu-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.25);
+    margin: 0.6rem 0 2rem;
+  }
+
+
+  /* ===========================
+     MENU LINKS
+  ============================ */
+  .nav-links li {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    margin: 0.8rem 0;
+  }
+
+  .nav-links a {
+    font-size: 1.3rem;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    padding: 0.6rem 0;
+    transition: color 0.25s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--vibrant-orange);
+  }
+
+
+  /* ===========================
+     SCROLLBAR THEME
+  ============================ */
   .nav-links::-webkit-scrollbar {
     width: 6px;
   }
@@ -2412,9 +2371,44 @@ button, .btn, .label {
     background: #FF6F00;
   }
 
+
+  /* ===========================
+     LOCK BACKGROUND SCROLL
+  ============================ */
+  body.menu-open {
+    overflow: hidden;
+  }
 }
 
 
+
+
+/* ==========================================================================
+   DESKTOP — completely hide mobile-only menu header
+   ========================================================================== */
+@media (min-width: 769px) {
+  .mobile-menu-header-item,
+  .mobile-menu-header,
+  .mobile-menu-logo,
+  .mobile-menu-logo img,
+  .mobile-menu-divider {
+    display: none !important;
+  }
+
+  /* Restore desktop nav-links layout */
+  .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5rem;
+    height: auto !important;
+    background: transparent !important;
+    position: static !important;
+    transform: none !important;
+    padding: 0 !important;
+  }
+}
 
 
 
