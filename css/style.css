@@ -2252,6 +2252,57 @@ button, .btn, .label {
   color: #ccc;
 }
 
+
+/* =====📱 FOOTER — MOBILE VISIBILITY FIX=========  */
+@media (max-width: 768px) {
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.8rem;
+  }
+
+  .footer-brand,
+  .footer-nav,
+  .footer-social {
+    width: 100%;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-logo {
+    width: 90px;
+  }
+
+  .footer-bottom {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .footer-nav a {
+    font-size: 1rem;
+  }
+
+  .footer-social svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+
+
 /*------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                         /
 /* END OF FOOTER SECTION STYLES                                                                                               /                                                                                                                   /
@@ -2332,6 +2383,33 @@ button, .btn, .label {
   * {
     box-sizing: border-box;
   }
+
+  /* Enable scrolling inside hamburger menu */
+  .nav-links {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; /* iOS only, safe */
+  }
+
+  /* OrideDax themed scrollbar (desktop & Android) */
+  .nav-links::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .nav-links::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+  }
+
+  .nav-links::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #FF6F00, #FFA642);
+    border-radius: 10px;
+  }
+
+  .nav-links::-webkit-scrollbar-thumb:hover {
+    background: #FF6F00;
+  }
+
 }
 
 
