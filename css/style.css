@@ -2319,7 +2319,9 @@ button, .btn, .label {
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
 
-    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+
+    /* Cross-platform bottom scroll safety (iOS + Android landscape) */
+    padding-bottom: max(4rem, calc(4rem + env(safe-area-inset-bottom)));
 
   }
 
