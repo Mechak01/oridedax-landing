@@ -86,6 +86,72 @@ button, .btn, .label {
 }
 
 
+/* ===================================================
+   🌊 SECTION SEPARATOR — Soft cinematic transition
+=================================================== */
+.section-separator {
+  height: 120px;
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(30, 58, 138, 0.08),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.section-separator.dark {
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+}
+
+
+
+
+
+/* Mobile: slightly smaller spacing */
+@media (max-width: 768px) {
+  .section-separator {
+    height: 80px;
+  }
+}
+
+
+/* SECTION STYLES */
+.section {
+  padding-block: clamp(5rem, 10vw, 9rem);
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+}
+
+/* Primary CTA button style */
+.btn-primary {
+  background: var(--gradient-orange);
+  color: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(255,111,0,0.35);
+}
+
+
+
+
 
 /*------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                         /
@@ -272,7 +338,7 @@ button, .btn, .label {
   background: linear-gradient(135deg, #1E3A8A 0%, #3B4FA5 30%, #FF6F00 90%);
   padding-top: 8rem;      /* spacing from navbar */
   padding-bottom: 4rem;   /* breathing room */
-  overflow: visible;      /* STOP internal scrollbars */
+  overflow: hidden;      /* STOP internal scrollbars */
 }
 
 
@@ -302,6 +368,8 @@ button, .btn, .label {
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   z-index: 0;
+  pointer-events: none;
+  will-change: background-position;
 }
 
 @keyframes gradientFlow {
@@ -540,7 +608,15 @@ button, .btn, .label {
   z-index: 1;                /* 👈 sits behind content */
   pointer-events: none;
   animation: orbitPulse 18s ease-in-out infinite alternate;
+  will-change: transform;
 }
+
+.hero-bg-orbits {
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
 
 .hero-bg-orbits::before,
 .hero-bg-orbits::after {
@@ -549,7 +625,7 @@ button, .btn, .label {
   inset: -80px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.08);
-  animation: orbitSpin 45s linear infinite;
+  animation: orbitPulse 18s ease-in-out infinite alternate;
 }
 
 .hero-bg-orbits::after {
@@ -595,6 +671,232 @@ button, .btn, .label {
 
 
 
+
+
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*                                                                                                                         /
+/* START OF 🪜 HOW IT WORKS — Clarity Booster Section                                                                                      /                                                                                                                   /
+/*                                                                                                                         /                                                                                                                     /
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+/* ===================================================
+   🪜 HOW IT WORKS — Premium Clarity Booster
+=================================================== */
+
+.how-it-works {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+
+  /* Background image */
+  background: 
+    url("../assets/images/how-it-works-bg.png") center / cover no-repeat;
+}
+
+/* Soft brand overlay for readability */
+.how-it-works::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(30, 58, 138, 0.88) 0%,
+    rgba(30, 58, 138, 0.92) 100%
+  );
+  z-index: 0;
+}
+
+/* Ambient glow layer */
+.how-it-works::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(30,58,138,0.18), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(255,111,0,0.12), transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Content above overlays */
+.how-it-works-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Headings */
+.how-it-works-container h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.4rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.how-it-works-container .highlight {
+  color: var(--vibrant-orange);
+}
+
+.how-it-works-subtitle {
+  font-family: "Poppins", sans-serif;
+  color: rgba(255,255,255,0.85);
+  font-size: 1.05rem;
+  margin-bottom: 3.5rem;
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+/* Grid */
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.2rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* Card */
+.how-step {
+  position: relative;
+  background: rgba(255,255,255,0.75);
+  border-radius: 1.5rem;
+  padding: 2.2rem 1.8rem 2rem;
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.18);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* Hover lift (refined) */
+.how-step:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 22px 55px rgba(0,0,0,0.25),
+    0 0 35px rgba(255,111,0,0.25);
+}
+
+/* Icon */
+.how-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    rgba(30,58,138,0.18),
+    rgba(255,111,0,0.18)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+.how-icon img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+}
+
+/* Icon micro-motion */
+.how-step:hover .how-icon {
+  transform: translateY(-5px) scale(1.06);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+}
+
+/* Title */
+.how-step h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
+  color: var(--primary-blue);
+  margin-bottom: 0.4rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.how-step:hover h3 {
+  color: var(--vibrant-orange);
+  transform: translateY(-2px);
+}
+
+/* Description — hover reveal (desktop) */
+.how-step p {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(10px);
+  transition: 
+    opacity 0.35s ease,
+    max-height 0.45s ease,
+    transform 0.35s ease;
+  margin: 0;
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Reveal on hover */
+.how-step:hover p {
+  opacity: 1;
+  max-height: 120px;
+  transform: translateY(0);
+  margin-top: 0.6rem;
+}
+
+/* 📱 Mobile: stack + always show text */
+@media (max-width: 900px) {
+  .how-steps {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  .how-step {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .how-step p {
+    opacity: 1;
+    max-height: none;
+    transform: none;
+    margin-top: 0.6rem;
+  }
+
+  .how-it-works-container h2 {
+    font-size: 2rem;
+  }
+}
+
+
+
+
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*                                                                                                                         /
+/* END OF 🪜 HOW IT WORKS — Clarity Booster Section                                                                                             /                                                                                                                   /
+/*                                                                                                                         /                                                                                                                     /
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
 /*------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                         /
 /* START OF PROBLEM SECTION — Context & Empathy                                                                                        /                                                                                                                   /
@@ -603,7 +905,6 @@ button, .btn, .label {
 
 .problem {
   position: relative;
-  padding: 6rem 1.5rem 6rem;
   background: linear-gradient(180deg, #132b67 0%, #1E3A8A 60%, #0f1f4a 100%);
   overflow: visible; /* 🔥 FIX 1: stop internal scrollbars */
   height: auto;      /* 🔥 FIX 2: allow section to grow naturally */
@@ -624,11 +925,11 @@ button, .btn, .label {
 
 /* --- Container --- */
 .problem-container {
-  max-width: 1100px;
-  margin: 0 auto;
   position: relative;
   z-index: 2;
+  /* ❌ remove max-width & margin */
 }
+
 
 /* --- Headings --- */
 .problem h2 {
@@ -1012,7 +1313,7 @@ button, .btn, .label {
 .services {
   position: relative;
   padding: 8rem 2rem 10rem;
-  background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+  background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface-1) 100%);
   overflow: visible;
   height: auto;
   min-height: auto;
@@ -1163,7 +1464,7 @@ button, .btn, .label {
 ========================================================== */
 .mockup-slider-section {
   padding: 8rem 2rem;
-  background: linear-gradient(180deg, #eef2ff 0%, #ffffff 70%);
+  background: linear-gradient(180deg, rgba(30,58,138,0.12) 0%, var(--surface-1) 70%);
 }
 
 .slider {
@@ -1467,6 +1768,220 @@ button, .btn, .label {
 
 
 
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*                                                                                                                         /
+/* START OF Benefits SECTION STYLES                                                                                               /                                                                                                                   /
+/*                                                                                                                         /                                                                                                                     /
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+/* ============================
+   🌟 BENEFITS — Persuasion Band
+============================= */
+
+.benefits {
+  position: relative;
+  background: linear-gradient(180deg, #0f1f4a 0%, #132b67 100%);
+  color: #ffffff;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Subtle ambient glows */
+.benefits::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,111,0,0.12), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(30,58,138,0.18), transparent 60%);
+  pointer-events: none;
+}
+
+.benefits-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Headings */
+.benefits h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.benefits-subtitle {
+  font-family: "Poppins", sans-serif;
+  color: rgba(255,255,255,0.85);
+  font-size: 1.05rem;
+  margin-bottom: 4rem;
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+/* Grid */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2.5rem;
+}
+
+/* Cards */
+.benefit-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 1.6rem;
+  padding: 2.4rem 1.8rem 2.2rem;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35),
+              0 0 30px rgba(255,111,0,0.25);
+  border-color: rgba(255,111,0,0.5);
+}
+
+/* Icon bubble */
+.benefit-icon {
+  width: 120px;   /* ⬆️ was 96px */
+  height: 120px;  /* ⬆️ was 96px */
+  border-radius: 50%;
+  margin: 0 auto 1.6rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 255, 255, 0.25),
+    rgba(30, 58, 138, 0.15)
+  );
+
+  border: 1px solid rgba(30, 58, 138, 0.25);
+
+  box-shadow:
+    0 12px 32px rgba(30, 58, 138, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Icon inside */
+.benefit-icon img {
+  width: 64px;   /* ⬆️ was 52px */
+  height: 64px;  /* ⬆️ was 52px */
+  object-fit: contain;
+
+  filter: drop-shadow(0 6px 14px rgba(30, 58, 138, 0.45));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+
+/* Hover polish */
+.benefit-card:hover .benefit-icon {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow:
+    0 16px 40px rgba(30, 58, 138, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.benefit-card:hover .benefit-icon img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 8px 18px rgba(30, 58, 138, 0.55));
+}
+
+
+
+/* Text */
+.benefit-card h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+  color: #fff;
+}
+
+.benefit-card p {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+/* CTA */
+.benefits-cta {
+  margin-top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.benefits-cta-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.05rem;
+  color: #444;
+}
+
+
+@media (min-width: 768px) {
+  .benefit-icon {
+    width: 96px;
+    height: 96px;
+  }
+
+  .benefit-icon img {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .benefit-icon {
+    width: 96px;
+    height: 96px;
+  }
+
+  .benefit-icon img {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+
+
+
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*                                                                                                                         /
+/* END OF Benefits SECTION STYLES                                                                                               /                                                                                                                   /
+/*                                                                                                                         /                                                                                                                     /
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+
+
 
 
 /*------------------------------------------------------------------------------------------------------------------------*/
@@ -1474,110 +1989,235 @@ button, .btn, .label {
 /* START OF FEATURES SECTION STYLES                                                                                               /                                                                                                                   /
 /*                                                                                                                         /                                                                                                                     /
 /*------------------------------------------------------------------------------------------------------------------------*/
+
+
+/* ============================
+   ✨ FEATURES — PREMIUM UPGRADE
+============================ */
+
 .features {
-  padding: 5rem 2rem;
-  background: #ffffff;
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
   text-align: center;
+  overflow: hidden;
+}
+
+/* Soft ambient background glow */
+.features::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(30, 58, 138, 0.08), transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 111, 0, 0.08), transparent 50%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .features-container {
+  position: relative;
+  z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* Headings */
 .features h2 {
   font-family: "Montserrat", sans-serif;
-  font-size: 2rem;
-  color: #1E3A8A;
-  margin-bottom: 1rem;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  color: var(--primary-blue);
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.5px;
 }
 
 .features-subtitle {
   font-family: "Poppins", sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: #555;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
+  max-width: 680px;
+  margin-inline: auto;
 }
 
+/* Grid */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2.5rem;
 }
 
-
-.feature-card img {
-  width: 50px;
-  margin-bottom: 1rem;
+/* Cards */
+.feature-card {
+  position: relative;
+  padding: 2.2rem 1.8rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(30, 58, 138, 0.08);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  overflow: hidden;
 }
 
+/* Soft glow ring on hover */
+.feature-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(255,111,0,0.35), rgba(30,58,138,0.35));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.feature-card:hover::after {
+  opacity: 1;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.18);
+  border-color: rgba(255, 111, 0, 0.4);
+}
+
+/* Icon bubble */
+.feature-icon {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  margin: 0 auto 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(145deg, rgba(30, 58, 138, 0.18), rgba(255, 111, 0, 0.18));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6),
+              0 10px 25px rgba(0,0,0,0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.feature-icon img {
+  width: 42px;
+  height: 42px;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.25));
+}
+
+.feature-card:hover .feature-icon {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.2);
+}
+
+/* Typography inside cards */
 .feature-card h3 {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-  color: #1E3A8A;
+  font-size: 1.35rem;
+  color: var(--primary-blue);
+  margin-bottom: 0.4rem;
 }
 
 .feature-card p {
   font-family: "Poppins", sans-serif;
-  font-size: 1rem;
-  color: #333;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #444;
+  max-width: 260px;
+  margin: 0 auto;
 }
 
-/* feature icons styles */
-.feature-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(145deg, rgba(30, 58, 138, 0.15), rgba(255, 111, 0, 0.15));
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-icon img {
-  width: 40px;
-  height: 40px;
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
-}
-
-.feature-icon:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-
-/* Hover effect */
-.feature-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-  background: rgba(255, 255, 255, 0.25);
-}
-
-
-/* Glass style */
-.glass-card {
-  background: rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Reveal animation */
+/* Reveal animation stays compatible */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 1s cubic-bezier(.25,.8,.25,1), 
-              transform 1s cubic-bezier(.25,.8,.25,1);
+  transition: opacity 0.9s cubic-bezier(.25,.8,.25,1),
+              transform 0.9s cubic-bezier(.25,.8,.25,1);
 }
-
 
 .reveal.show {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ================================
+   FEATURES — HOVER REVEAL DETAILS
+================================ */
+
+/* Base card */
+.feature-card {
+  position: relative;
+  padding: 2.2rem 1.8rem 2rem;
+  border-radius: 1.4rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+  cursor: default;
+  overflow: hidden;
+}
+
+/* Hide description by default */
+.feature-card p {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(10px);
+  transition: 
+    opacity 0.35s ease, 
+    max-height 0.4s ease, 
+    transform 0.35s ease;
+  margin: 0;
+}
+
+/* Reveal on hover */
+.feature-card:hover p {
+  opacity: 1;
+  max-height: 120px; /* enough for 2 lines */
+  transform: translateY(0);
+  margin-top: 0.6rem;
+}
+
+/* Lift + glow on hover */
+.feature-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.18),
+              0 0 35px rgba(255,111,0,0.25);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Title emphasis */
+.feature-card h3 {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.feature-card:hover h3 {
+  color: var(--vibrant-orange);
+  transform: translateY(-2px);
+}
+
+/* Icon micro interaction */
+.feature-card:hover .feature-icon {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+
+/* Mobile polish */
+@media (max-width: 768px) {
+  .features-subtitle {
+    margin-bottom: 3rem;
+  }
+
+  .feature-card {
+    padding: 2rem 1.4rem;
+  }
+
+  .feature-card p {
+    max-width: 100%;
+  }
+}
+
+
+
+
+
 /*------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                         /
 /* END OF FEATURES SECTION STYLES                                                                                               /                                                                                                                   /
@@ -1808,7 +2448,7 @@ button, .btn, .label {
 .contact {
   position: relative;
   padding: 7rem 2rem;
-  background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #0f1f4a 0%, #132b67 100%);
   overflow: hidden;
 }
 
@@ -1871,6 +2511,12 @@ button, .btn, .label {
   margin-bottom: 0.75rem;
 }
 
+.contact-left h2,
+.contact-left p,
+.contact-left li {
+  color: #ffffff;
+}
+
 /* =============================
    RIGHT SIDE — FORM
 ============================= */
@@ -1886,6 +2532,7 @@ button, .btn, .label {
   flex-direction: column;
   gap: 1.2rem;
   transition: box-shadow 0.3s ease;
+  background: rgba(255,255,255,0.95); /* keep form bright */
 }
 
 
@@ -2504,6 +3151,10 @@ button, .btn, .label {
 /*------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
 
 
 

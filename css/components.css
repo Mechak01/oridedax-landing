@@ -1,0 +1,49 @@
+/* ============================
+   🎯 GLOBAL CTA SYSTEM
+============================ */
+
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  background: var(--gradient-orange);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+
+  padding: 0.9rem 1.6rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  box-shadow: 0 10px 30px rgba(255, 111, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(255, 111, 0, 0.45);
+}
+
+.cta-primary:active {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(255, 111, 0, 0.35);
+}
+
+/* Secondary CTA variant */
+.cta-primary.secondary {
+  background: transparent;
+  color: #fff; /* for dark backgrounds like hero */
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: none;
+}
+
+.cta-primary.secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}

@@ -64,7 +64,7 @@
   <!-- ===========================
       HERO / HEADER SECTION
   ============================ -->
-  <header class="hero">
+  <header class="hero" id="hero">
     <div class="hero-overlay"></div>
 
     <!-- 🔹 NAVIGATION BAR -->
@@ -110,7 +110,7 @@
           <!-- MENU LINKS -->
           <li><a href="#about">Over</a></li>
           <li><a href="#services">Diensten</a></li>
-          <li><a href="#features">Functies</a></li>
+          <li><a href="#benefits">Voordelen</a></li>
           <li><a href="#contact">Contact</a></li>
 
         </ul>
@@ -138,7 +138,7 @@
           <input type="checkbox" id="agreePolicy" required />
           Ik ga akkoord met het <a href="policies.html#privacy-anchor">privacybeleid</a>
         </label>
-        <button type="submit" class="btn-primary">Join the Waitlist</button>
+        <button type="submit" class="cta-primary">Join the Waitlist</button>
       </form>
 
       <!-- Success Modal (Waitlist Confirmation) -->
@@ -153,12 +153,60 @@
   </header>
 
 
+  
+ 
+
+  <!-- ===========================
+      HOW IT WORKS SECTION
+  ============================ -->
+  <section class="how-it-works section" id="how-it-works">
+    <div class="section-inner how-it-works-container reveal">
+
+      <h2>Zo werkt <span class="highlight">OrideDax</span></h2>
+      <p class="how-it-works-subtitle">
+        In drie eenvoudige stappen naar je rijbewijs.
+      </p>
+
+      <div class="how-steps">
+
+        <div class="how-step reveal">
+          <div class="how-icon">
+            <!-- Placeholder for your own icon -->
+            <img src="assets/icons/search.png" alt="Zoek begeleider icoon" />
+          </div>
+          <h3>Vind een begeleider</h3>
+          <p>Zoek betrouwbare begeleiders, rijscholen of instructeurs in jouw buurt.</p>
+        </div>
+
+        <div class="how-step reveal">
+          <div class="how-icon">
+            <img src="assets/icons/calendar.png" alt="Plan sessies icoon" />
+          </div>
+          <h3>Plan sessies</h3>
+          <p>Kies tijdstippen die voor jou werken en beheer je planning in realtime.</p>
+        </div>
+
+        <div class="how-step reveal">
+          <div class="how-icon">
+            <img src="assets/icons/rocket.png" alt="Leer sneller icoon" />
+          </div>
+          <h3>Leer sneller & veiliger</h3>
+          <p>Bouw vertrouwen op met begeleiding op maat en duidelijke feedback.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  
 
   <!-- ===========================
       PROBLEM SECTION
   =========================== -->
- <section class="problem reveal" id="problem">
-    <div class="problem-container">
+  <section class="problem reveal section" id="problem">
+    <div class="section-inner problem-container">
       <h2 class="reveal">Waarom het vandaag zo moeilijk is om je rijbewijs te halen</h2>
       <p class="problem-intro reveal">
         Het Belgische rijopleiding-systeem is duur, versnipperd en niet afgestemd op de nieuwe generatie bestuurders.
@@ -206,20 +254,18 @@
 
       <div class="problem-cta reveal">
         <p><strong>OrideDax</strong> verandert dit.</p>
-        <a href="#about" class="btn-primary">Ontdek onze oplossing</a>
+        <a href="#about" class="cta-primary">Ontdek onze oplossing</a>
       </div>
     </div>
   </section>
 
 
 
-
-
   <!-- ===========================
       ABOUT SECTION
   ============================ -->
-  <section class="about" id="about">
-    <div class="about-container reveal">
+  <section class="about section" id="about">
+    <div class="section-inner about-container reveal">
 
       <h2>De oplossing: <span class="highlight">OrideDax</span></h2>
 
@@ -240,24 +286,25 @@
       </p>
 
       <div class="about-cta">
-        <a href="#features" class="btn-primary">Ontdek hoe het werkt</a>
+        <a href="#features" class="cta-primary">Ontdek hoe het werkt</a>
       </div>
 
     </div>
   </section>
 
 
-
+  <!-- Section separator -->
+  <div class="section-separator"></div>
 
   <!-- ===========================
       SERVICES SECTION
   ============================ -->
-  <section class="services" id="services">
+  <section class="services section" id="services">
 
     <!-- 🔹 BACKGROUND OVERLAY -->
     <div class="services-overlay"></div>
 
-    <div class="services-container">
+    <div class="section-inner services-container">
       <h2>Onze Diensten</h2>
       <p class="services-subtitle">
         Eenvoudig. Betrouwbaar. Persoonlijk — kies hoe jij wilt leren rijden.
@@ -305,31 +352,36 @@
 
 
 
+  <!-- Section separator -->
+  <div class="section-separator"></div>
 
 
 
   <!-- ===========================
       MOCKUP SLIDER SECTION
   ============================ -->
-  <section class="mockup-slider-section">
-    <div class="slider" id="mockup-slider">
+  <section class="mockup-slider-section section">
+    <div class="section-inner">
+      <div class="slider" id="mockup-slider">
 
-      <!-- 🔹 SLIDE IMAGES -->
-      <div class="slides">
-        <img src="assets/images/mockups/searchPreview.png" alt="Dashboard Mockup">
-        <img src="assets/images/mockups/CalendarPreview.png" alt="Matches Mockup">
-        <img src="assets/images/mockups/MatchesPreview.png" alt="Wallet Mockup">
+        <!-- 🔹 SLIDE IMAGES -->
+        <div class="slides">
+          <img src="assets/images/mockups/searchPreview.png" alt="Dashboard Mockup">
+          <img src="assets/images/mockups/CalendarPreview.png" alt="Matches Mockup">
+          <img src="assets/images/mockups/MatchesPreview.png" alt="Wallet Mockup">
+        </div>
+
+        <!-- 🔹 SLIDER CONTROLS -->
+        <button class="slider-btn prev" aria-label="Vorige afbeelding">&#10094;</button>
+        <button class="slider-btn next" aria-label="Volgende afbeelding">&#10095;</button>
+
+        <!-- 🔹 DOT INDICATORS -->
+        <div class="slider-dots"></div>
+
       </div>
-
-      <!-- 🔹 SLIDER CONTROLS -->
-      <button class="slider-btn prev" aria-label="Vorige afbeelding">&#10094;</button>
-      <button class="slider-btn next" aria-label="Volgende afbeelding">&#10095;</button>
-
-      <!-- 🔹 DOT INDICATORS -->
-      <div class="slider-dots"></div>
-
     </div>
   </section>
+
 
 
 
@@ -378,16 +430,73 @@
   -->
 
 
-
   
+
+
+  <!-- ===========================
+      Benefits SECTION
+  ============================ -->
+  <section class="benefits section" id="benefits">
+    <div class="section-inner benefits-container">
+
+      <h2>Waarom OrideDax?</h2>
+      <p class="benefits-subtitle">
+        Ontworpen om jouw leerproces eenvoudiger, veiliger en stressvrij te maken.
+      </p>
+
+      <div class="benefits-grid">
+
+        <div class="benefit-card reveal">
+          <div class="benefit-icon">
+            <img src="assets/icons/benefit-safe.png" alt="Veilig leren" />
+          </div>
+          <h3>Veilig & Vertrouwd</h3>
+          <p>
+            Leer rijden met geverifieerde begeleiders en ingebouwde veiligheidsfuncties.
+          </p>
+        </div>
+
+        <div class="benefit-card reveal">
+          <div class="benefit-icon">
+            <img src="assets/icons/benefit-flexible.png" alt="Flexibel plannen" />
+          </div>
+          <h3>Flexibel op Jouw Tempo</h3>
+          <p>
+            Plan sessies wanneer het jou uitkomt — geen vaste rijschooldruk.
+          </p>
+        </div>
+
+        <div class="benefit-card reveal">
+          <div class="benefit-icon">
+            <img src="assets/icons/benefit-money.png" alt="Besparen" />
+          </div>
+          <h3>Bespaar Kosten</h3>
+          <p>
+            Leer slimmer en betaal minder door efficiënter te oefenen.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="benefits-cta">
+        <p class="benefits-cta-text">
+          Klaar om slimmer te leren rijden?
+        </p>
+        <a href="#hero" class="btn-primary">Join de wachtlijst</a>
+      </div>
+
+
+    </div>
+  </section>
+
 
 
 
   <!-- ===========================
       FEATURES SECTION
   ============================ -->
-  <section class="features" id="features">
-    <div class="features-container">
+  <section class="features section" id="features">
+    <div class="section-inner features-container">
 
       <!-- 🔹 SECTION HEADING -->
       <h2>Belangrijkste Functies</h2>
@@ -400,7 +509,9 @@
 
         <!-- Feature 1 – Search & Match -->
         <div class="feature-card glass-card reveal">
-          <img src="assets/icons/search.png" alt="Zoeken icoon" />
+          <div class="feature-icon">
+            <img src="assets/icons/search.png" alt="Zoeken icoon" />
+          </div>
           <h3>Zoek & Match</h3>
           <p>
             Vind begeleiders in jouw buurt op basis van locatie, ervaring en beschikbaarheid.
@@ -409,7 +520,9 @@
 
         <!-- Feature 2 – In-app Chat -->
         <div class="feature-card glass-card reveal">
-          <img src="assets/icons/chat.png" alt="Chat icoon" />
+          <div class="feature-icon">
+            <img src="assets/icons/chat.png" alt="Chat icoon" />
+          </div>
           <h3>In-app Chat</h3>
           <p>
             Blijf in contact met je begeleider via onze veilige berichtenfunctie.
@@ -418,7 +531,9 @@
 
         <!-- Feature 3 – Planning -->
         <div class="feature-card glass-card reveal">
-          <img src="assets/icons/calendar.png" alt="Kalender icoon" />
+          <div class="feature-icon">
+            <img src="assets/icons/calendar.png" alt="Kalender icoon" />
+          </div>
           <h3>Planning</h3>
           <p>
             Plan eenvoudig sessies in met de ingebouwde kalenderfunctie.
@@ -427,7 +542,9 @@
 
         <!-- Feature 4 – Reviews & Safety -->
         <div class="feature-card glass-card reveal">
-          <img src="assets/icons/reviews.png" alt="Ster icoon" />
+          <div class="feature-icon">
+            <img src="assets/icons/reviews.png" alt="Ster icoon" />
+          </div>
           <h3>Reviews & Veiligheid</h3>
           <p>
             Laat beoordelingen achter en gebruik onze veiligheidsopties zoals de noodknop.
@@ -437,6 +554,11 @@
       </div><!-- /features-grid -->
     </div><!-- /features-container -->
   </section>
+
+
+
+  <!-- Section separator -->
+  <div class="section-separator"></div>
 
 
 
@@ -555,6 +677,10 @@
         <!-- X / TikTok placeholders for future icons -->
       </div><!-- /footer-social -->
     </div><!-- /footer-container -->
+
+    <div class="footer-cta">
+      <a href="#contact" class="cta-primary secondary">Neem contact op</a>
+    </div>
 
     <!-- 🔹 FOOTER BOTTOM -->
     <div class="footer-bottom">

@@ -39,3 +39,20 @@
   --space-md: 2rem;
   --space-lg: 4rem;
 }
+
+:root {
+  /* ======== SURFACE BACKGROUNDS (NEW) ======== */
+  --surface-0: #ffffff;           /* pure white (cards, modals) */
+  --surface-1: #f7f9fc;           /* neutral soft background */
+  --surface-2: #eef2ff;           /* light blue tint */
+  --surface-3: #e9eefb;           /* slightly stronger tint */
+  --surface-dark: #0f1f4a;        /* deep section background */
+}
+
+
+:root {
+  /* ======== DARK SURFACES ======== */
+  --surface-dark-1: #0f1f4a;   /* deep blue */
+  --surface-dark-2: #132b67;   /* problem-section style */
+  --surface-dark-soft: linear-gradient(180deg, #0f1f4a 0%, #162c6b 100%);
+}
